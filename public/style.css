@@ -2,6 +2,7 @@
 
 :root {
     --primary-color: #7159c1;
+    --secondary-color: #f7df1e;
 }
 
 * {
@@ -66,7 +67,7 @@ header {
 .card {
     background-color: white;
     width: 800px;
-    height: 400px;
+    min-height: 400px;
 
     margin: 45px auto;
     
@@ -86,4 +87,51 @@ header {
     to {
         opacity: 1;
     }
+}
+
+.details {
+    padding: 32px;
+}
+
+.details .item {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.details .item:last-child {
+    border: none;
+}
+
+.details h3,
+.details .item div:nth-child(1) {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.7px;
+    font-weight: normal;
+    color: #777;
+}
+
+.details .item div:nth-child(2) {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+.details h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.details .item span {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #777;
+    background-color: var(--secondary-color);
+    padding: 8px 16px;
+    border-radius: 16px;
+    margin-left: 4px;
+    margin-top: 8px;
+    display: inline-block;
 }
