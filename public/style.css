@@ -107,7 +107,7 @@ header {
     font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.7px;
-    font-weight: normal;
+    font-weight: bold;
     color: #777;
 }
 
@@ -134,4 +134,34 @@ header {
     margin-left: 4px;
     margin-top: 8px;
     display: inline-block;
+}
+
+/* ================ form ================ */
+
+input {
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="radio"] {
+    width: initial;
+    margin-right: 4px;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 8px 32px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 32px;
 }
