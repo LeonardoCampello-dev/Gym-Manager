@@ -1,0 +1,20 @@
+{
+  "instructors": [
+    {
+      "avatar_url": "http://unsplash.com/trentzz",
+      "name": "Leonardo Campello",
+      "birth": 967248000000,
+      "gender": "M",
+      "services": "Musculação, Natação, Muay-Thay",
+      "created_at": 1593624843182
+    },
+    {
+      "avatar_url": "http://unsplash.com/BiancaMaravilhosa",
+      "name": "Bianca Artier",
+      "birth": 912124800000,
+      "gender": "F",
+      "services": "Natação, Zumba",
+      "created_at": 1593625012129
+    }
+  ]
+}
