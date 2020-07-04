@@ -164,6 +164,7 @@ a.button {
     color: #fff;
     border-radius: 4px;
     font-size: 16px;
+    cursor: pointer;
     margin-top: 32px;
 }
 
@@ -172,4 +173,9 @@ a.button {
     box-sizing: border-box; 
     text-align: center;
     text-decoration: none;
+}
+
+#form-delete button[type="submit"] {
+    margin-top: 8px;
+    background-color: #ED5E68;
 }
