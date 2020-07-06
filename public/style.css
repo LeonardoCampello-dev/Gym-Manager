@@ -243,7 +243,8 @@ tbody tr td:nth-child(1) {
     font-weight: bold;
 }
 
-tbody tr td:last-child a {
+tbody tr td:last-child a,
+.table-container > a {
     color: #fff;
     background-color: var(--primary-color);
     border-radius: 4px;
@@ -251,4 +252,9 @@ tbody tr td:last-child a {
     text-transform: uppercase;
     text-decoration: none;
     font-size: 12px;
+}
+
+.table-container > a {
+    margin-bottom: 16px;
+    display: inline-block;
 }
