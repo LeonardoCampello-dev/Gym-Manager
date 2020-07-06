@@ -1,39 +1,39 @@
 {
   "instructors": [
     {
-      "id": "1",
+      "id": 1,
       "avatar_url": "https://i.ibb.co/0qPrD6P/profile.jpg",
-      "name": "Leonardo Campello",
+      "name": "Leonardo Campello ",
       "birth": 967248000000,
       "gender": "M",
       "services": "Musculação, Natação, Muay-Thay",
       "created_at": 1593626964645
     },
     {
-      "id": "2",
+      "id": 2,
       "avatar_url": "https://i.ibb.co/xmv0FZm/Namorada.jpg",
-      "name": "Bianca Artier Delícia",
+      "name": "Bianca Artier ",
       "birth": 912124800000,
       "gender": "F",
       "services": "Natação, Zumba",
       "created_at": 1593626988942
     },
     {
-      "id": "3",
+      "id": 3,
       "avatar_url": "https://avatars2.githubusercontent.com/u/6643122?s=400&u=1e9e1f04b76fb5374e6a041f5e41dce83f3b5d92&v=4",
-      "name": "Mayk Brito",
+      "name": "Mayk Brito ",
       "birth": 648864000000,
       "gender": "M",
       "services": "Crossfit",
       "created_at": 1593627046638
     },
     {
-      "id": "4",
+      "id": 4,
       "avatar_url": "https://www.gsuplementos.com.br/upload/growth-team/foto-full/bebf5ea85ddb30a3d5aedde9de06b332.png",
-      "name": "Fábio Giga - Growth",
+      "name": "Fábio Giga ",
       "birth": 299462400000,
       "gender": "M",
-      "services": "Nutrição, Bodybuilding",
+      "services": "Nutrição, Bodybuilding, Fisiculturismo",
       "created_at": 1593904685409
     }
   ]

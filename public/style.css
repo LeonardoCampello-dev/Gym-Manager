@@ -3,6 +3,8 @@
 :root {
     --primary-color: #7159c1;
     --secondary-color: #f7df1e;
+    --action: #ED5E68;
+    --gray: #777777
 }
 
 * {
@@ -34,7 +36,7 @@ header {
 
 .links a {
     text-decoration: none;
-    color: #777;
+    color: var(--gray);
     position: relative;
 }
 
@@ -108,7 +110,7 @@ header {
     line-height: 24px;
     letter-spacing: 0.7px;
     font-weight: bold;
-    color: #777;
+    color: var(--gray);
 }
 
 .details .item div:nth-child(2) {
@@ -127,7 +129,7 @@ header {
     font-size: 12px;
     text-transform: uppercase;
     font-weight: bold;
-    color: #777;
+    color: var(--gray);
     background-color: var(--secondary-color);
     padding: 8px 16px;
     border-radius: 16px;
@@ -176,6 +178,77 @@ a.button {
 }
 
 #form-delete button[type="submit"] {
+    background-color: var(--action);
     margin-top: 8px;
-    background-color: #ED5E68;
+}
+
+/* ================ INDEX ================ */
+
+.table-container {
+    display: block;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.table-container table {
+    border-spacing: 0;
+}
+
+.table-container thead tr th {
+    text-align: left;
+}
+
+.table-container thead tr th:last-child {
+    color: var(--action);
+}
+
+.table-container thead tr th:last-child,
+tbody tr td:last-child {
+    text-align: center;
+}
+
+thead th {
+    color: var(--gray);
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 16px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr td:first-child {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+}
+
+tbody tr td:first-child span {
+    width: 48px;
+    height: 48px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 40%;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 3px 1px 6px -4px #000;
+} 
+
+tbody tr td:nth-child(1) {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+tbody tr td:last-child a {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
 }
