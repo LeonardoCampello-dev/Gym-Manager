@@ -3,26 +3,14 @@ const data = require('../data.json')
 const { age, date } = require('../utils')
 
 exports.index = (req, res) => {    
+    const instructors = data.instructors
+
+    for (instructor of instructors) {
+        instructor.services = String(instructor.services)
+        instructor.services = instructor.services.split(",")
+    }
+
     return res.render("instructors/index", { instructors: data.instructors })
-}
-
-exports.show = (req, res) => {
-    const { id } = req.params
-
-    const foundInstructor = data.instructors.find((instructor) => {
-        return instructor.id == id
-    })
-
-    if (!foundInstructor) return res.send("Instructor not found!")
-
-    const instructor = {
-        ...foundInstructor,
-        age: age(foundInstructor.birth),
-        services: foundInstructor.services.split(","),
-        created_at: new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at)
-    }   
-        
-    return res.render("instructors/show", { instructor })
 }
 
 exports.create = (req, res) => {
@@ -42,7 +30,14 @@ exports.post = (req, res) => {
     
     birth = Date.parse(birth)
     const created_at = Date.now()
-    const id = Number(data.instructors.length + 1) 
+
+    let id = 1
+    const lastInstructor = data.instructors[data.instructors.length - 1]
+
+    if (lastInstructor) {
+        id = lastInstructor.id + 1  
+    }
+    
 
     data.instructors.push({
         id,
@@ -57,9 +52,30 @@ exports.post = (req, res) => {
     fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
         if (err) return res.send("Write file error!")
 
-        return res.redirect("/instructors")
+        return res.redirect(`/instructors/${id}`)
     })
     
+}
+
+exports.show = (req, res) => {
+    const { id } = req.params
+
+    const foundInstructor = data.instructors.find((instructor) => {
+        return instructor.id == id
+    })
+
+    if (!foundInstructor) return res.send("Instructor not found!")
+
+    foundInstructor.services = String(foundInstructor.services)
+    
+    const instructor = {
+        ...foundInstructor,
+        age: age(foundInstructor.birth),
+        services: foundInstructor.services.split(","),
+        created_at: date(foundInstructor.created_at).ptBr
+    }   
+        
+    return res.render("instructors/show", { instructor })
 }
 
 exports.edit = (req, res) => {
@@ -71,7 +87,7 @@ exports.edit = (req, res) => {
 
     const instructor = {
         ...foundInstructor,
-        birth: date(foundInstructor.birth)
+        birth: date(foundInstructor.birth).iso
     }
 
 

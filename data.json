@@ -1,41 +1,28 @@
 {
-  "members": [],
+  "members": [
+    {
+      "id": 1,
+      "avatar_url": "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "name": "Jon Smith",
+      "email": "jonsmith@gymmanger.com",
+      "birth": 444700800000,
+      "gender": "M",
+      "blood": "O+",
+      "weight": "87",
+      "height": "180"
+    }
+  ],
   "instructors": [
     {
       "id": 1,
-      "avatar_url": "https://i.ibb.co/0qPrD6P/profile.jpg",
-      "name": "Leonardo Campello ",
-      "birth": 967248000000,
+      "avatar_url": "https://images.unsplash.com/photo-1582442467598-c2cffc9b1d54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "name": "Adam Swanson",
+      "birth": 584668800000,
       "gender": "M",
-      "services": "Musculação, Natação, Muay-Thay",
-      "created_at": 1593626964645
-    },
-    {
-      "id": 2,
-      "avatar_url": "https://i.ibb.co/xmv0FZm/Namorada.jpg",
-      "name": "Bianca Artier ",
-      "birth": 912124800000,
-      "gender": "F",
-      "services": "Natação, Zumba",
-      "created_at": 1593626988942
-    },
-    {
-      "id": 3,
-      "avatar_url": "https://avatars2.githubusercontent.com/u/6643122?s=400&u=1e9e1f04b76fb5374e6a041f5e41dce83f3b5d92&v=4",
-      "name": "Mayk Brito ",
-      "birth": 648864000000,
-      "gender": "M",
-      "services": "Crossfit",
-      "created_at": 1593627046638
-    },
-    {
-      "id": 4,
-      "avatar_url": "https://www.gsuplementos.com.br/upload/growth-team/foto-full/bebf5ea85ddb30a3d5aedde9de06b332.png",
-      "name": "Fábio Giga ",
-      "birth": 299462400000,
-      "gender": "M",
-      "services": "Nutrição, Bodybuilding, Fisiculturismo",
-      "created_at": 1593904685409
+      "services": [
+        "Bodybuilding"
+      ],
+      "created_at": 1594150885383
     }
   ]
 }
