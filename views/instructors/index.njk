@@ -3,7 +3,6 @@
 {% block content %}
 
 <div class="card table-container">
-    <a href="/instructors/create">Novo instrutor</a>
     <table width="100%">
         <thead>
             <tr>
@@ -29,6 +28,7 @@
             {% endfor %}
         </tbody>
     </table>
+    <a href="/instructors/create"><span><img src="/assets/add.svg" alt="Add icon"></span>Novo instrutor</a>
 </div>
 
 {% endblock content %}

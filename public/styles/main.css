@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
-    --primary-color: #7159c1;
-    --secondary-color: #f7df1e;
-    --action: #ED5E68;
+    --primary-color: #FF3D4C;
+    --secondary-color: #85E2BF;
+    --action: #FF3D4C;
     --gray: #777777
 }
 
@@ -15,15 +15,29 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--primary-color);
+    background: url(https://cdn.dribbble.com/users/2920041/screenshots/12475946/media/95cac59455cb4d6f413b040397558c11.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
 }
 
 header {
-    background-color: #fff;
     width: 100%;
+    background-color: #fff;
     padding: 32px;
-    text-align: center;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+header img {
+    width: 48px;
+    height: 48px;
+    left: 5%;
+    position: absolute;
 }
 
 .links {
@@ -70,6 +84,7 @@ header {
     background-color: white;
     width: 800px;
     min-height: 400px;
+    position: relative;
 
     margin: 45px auto;
     
@@ -266,6 +281,16 @@ tbody tr td:last-child a:hover {
 .table-container > a {
     margin-bottom: 16px;
     display: inline-block;
+    position: absolute;
+    bottom: 0;
+}
+
+.table-container > a span img {
+    width: 14px;
+    height: 14px;
+    background-position: center;
+    background-size: cover;
+    margin-right: 8px;
 }
 
 .table-container > a:hover {
