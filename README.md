@@ -80,7 +80,7 @@ npm install
 
 ```
 
-## 💨 Rodando projeto 
+## 💨 Running project
 
 Run the following command to start the application in a development environment
 
