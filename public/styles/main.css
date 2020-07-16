@@ -3,7 +3,7 @@
 :root {
     --primary-color: #FF3D4C;
     --secondary-color: #85E2BF;
-    --action: #FF3D4C;
+    --action: #610a00;
     --gray: #777777
 }
 
@@ -15,11 +15,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: url(https://cdn.dribbble.com/users/2920041/screenshots/12475946/media/95cac59455cb4d6f413b040397558c11.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
+    background-color: #FF3D4C;
 }
 
 header {
@@ -181,8 +177,11 @@ a.button {
     padding: 8px 32px;
     background-color: var(--primary-color);
     color: #fff;
+    text-transform: uppercase;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: bold;
     cursor: pointer;
     margin-top: 32px;
 }
@@ -195,7 +194,8 @@ a.button {
 }
 
 #form-delete button[type="submit"] {
-    background-color: var(--action);
+    background-color: var(--gray);
+    text-transform: uppercase;
     margin-top: 8px;
 }
 
@@ -255,7 +255,6 @@ tbody tr td:nth-child(1) {
     color: var(--primary-color);
     font-weight: bold;
 }
-
 
 tbody tr:last-child td {
     border-bottom: none;
