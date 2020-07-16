@@ -1,20 +1,20 @@
 <h1 align="center">
-    <img src="https://d338t8kmirgyke.cloudfront.net/icons/icon_pngs/000/002/687/original/dumbell.png">
+    <img src="https://i.pinimg.com/originals/58/b8/01/58b801823c2ee845a6fa3e749dbe3d83.png">
 </h1>
 
-# Gym Manager 
+# <center> Gym Manager 🥇 </center> 
 
-> Gerencie sua academia com uma aplicação ágil e com uma bela interface 💪
+> Manage your gym with an agile application and a beautiful interface 💪
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Technologies used
 
-As seguintes tecnologias foram utilizadas
+The following technologies were used
 
 - **[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)**
 - **[Node.js](https://nodejs.org/en/)**
 - **[Nunjucks](https://mozilla.github.io/nunjucks/)**
 
-### 📕 Bibliotecas
+### 📕 Libraries
 
 - [x] [Browsersync](https://www.browsersync.io/)
 - [x] [npm-run-all](https://www.npmjs.com/package/npm-run-all)
@@ -25,46 +25,46 @@ As seguintes tecnologias foram utilizadas
 
 - [x] [Unsplash Source](https://source.unsplash.com/)
 
-## 📌 Recursos
+## 📌 Resources
 
-- Gerenciar instrutores
-- Gerenciar membros
+- Manage instructors
+- Manage members
+  
+## 🎥 Statements
 
-## 🎥 Demonstrações
-
-**Tabela de instrutores**
+**Trainers table**
 
 [![Image from Gyazo](https://i.gyazo.com/c82520885db824edec8c0078df5a0c2c.png)](https://gyazo.com/c82520885db824edec8c0078df5a0c2c)
 
 ---
 
-**Criando instrutor**
+**Creating instructor**
 
 [![Image from Gyazo](https://i.gyazo.com/408ffbae4cc6f98d48c348159bb5053a.png)](https://gyazo.com/408ffbae4cc6f98d48c348159bb5053a)
 
-![Create-Instructor](preview/create-instructor.gif)
+![Create-instructor](preview/create-instructor.gif)
 
 ---
 
-**Criando membro**
+**Creating member**
 
 [![Image from Gyazo](https://i.gyazo.com/beadcf253d21e3b4583bdb5d247a5825.png)](https://gyazo.com/beadcf253d21e3b4583bdb5d247a5825)
 
-**Edição de perfil (instrutor/membro)**
+**Profile editing (instructor / member)**
 
 ![Edit](preview/edit-members.gif)
 
 ---
 
-**Exclusão de perfil (instrutor/membro)**
+**Profile deletion (instructor / member)**
 
 ![Delete](preview/delete.gif)
 
 ---
 
-## 👨‍💼 Instalação do projeto
+## 👨‍💼 Project installation
 
-Primeiramente você precisa ter o [Node.js](https://nodejs.org/en/download/) instalado, em seguida **rode o seguinte comando:**
+First you need to have [Node.js](https://nodejs.org/en/download/) installed, then **run the following command:**
 
 ``` git 
 
@@ -72,7 +72,7 @@ git clone https://github.com/LeonardoCampello-dev/Gym-Manager.git
 
 ```
 
-**Para instalar as dependências**
+**To install the dependencies**
 
 ``` node
 
@@ -82,7 +82,7 @@ npm install
 
 ## 💨 Rodando projeto 
 
-Execute o seguinte comando para iniciar a aplicação em um ambiente de desenvolvimento
+Run the following command to start the application in a development environment
 
 ``` node
 
@@ -90,10 +90,10 @@ npm start
 
 ```
 
-## 🧾 Licença
+## 📜 License
 
-Projeto realizado em 2020. Este projeto está sob a [licença MIT](/LICENSE).
+Released in 2020. This project is under the [MIT license](/LICENSE).
 
 ---
 
-## Feito com 💚 por Leonardo Campello
+## Made with love by Leonardo Campello 💚

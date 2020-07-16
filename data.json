@@ -20,9 +20,19 @@
       "birth": 584668800000,
       "gender": "M",
       "services": [
-        "Bodybuilding"
+        "Bodybuilding",
+        " Boxe"
       ],
       "created_at": 1594150885383
+    },
+    {
+      "id": 2,
+      "avatar_url": "http://www.olimpiadatododia.com.br/wp-content/uploads/2020/06/Michael-Phelps-recordista-de-medalhas-de-ouro-numa-u%CC%81nica-edic%CC%A7a%CC%83o-dos-Jogos-Oli%CC%81mpicos-Pequim-2008.jpg",
+      "name": "Michael Phelps",
+      "birth": 488937600000,
+      "gender": "M",
+      "services": "Natação",
+      "created_at": 1594301163421
     }
   ]
 }

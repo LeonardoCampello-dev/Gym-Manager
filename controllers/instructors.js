@@ -51,10 +51,9 @@ exports.post = (req, res) => {
     
     fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
         if (err) return res.send("Write file error!")
-
-        return res.redirect(`/instructors/${id}`)
     })
     
+    return res.redirect(`/instructors/${id}`)
 }
 
 exports.show = (req, res) => {
@@ -89,7 +88,6 @@ exports.edit = (req, res) => {
         ...foundInstructor,
         birth: date(foundInstructor.birth).iso
     }
-
 
     return res.render("instructors/edit", { instructor })
 }
