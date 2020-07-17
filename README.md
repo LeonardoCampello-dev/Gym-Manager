@@ -42,7 +42,7 @@ The following technologies were used
 
 [![Image from Gyazo](https://i.gyazo.com/408ffbae4cc6f98d48c348159bb5053a.png)](https://gyazo.com/408ffbae4cc6f98d48c348159bb5053a)
 
-![Create-instructor](preview/create-instructor.gif)
+![Create-instructor](./.github/create-instructor.gif)
 
 ---
 
@@ -52,13 +52,13 @@ The following technologies were used
 
 **Profile editing (instructor / member)**
 
-![Edit](preview/edit-members.gif)
+![Edit](./.github/edit-members.gif)
 
 ---
 
 **Profile deletion (instructor / member)**
 
-![Delete](preview/delete.gif)
+![Delete](./.github/delete.gif)
 
 ---
 
