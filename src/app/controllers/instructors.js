@@ -58,12 +58,14 @@ module.exports = {
             }
         }
 
-        instructor.update(req.body, function() {
+        instructor.update(req.body, () => {
             return res.redirect(`/instructors/${req.body.id}`)
         })
     },
     delete(req, res) {
-        return
+        instructor.delete(req.body.id, () => {
+            return res.redirect(`/instructors`)
+        })
     }
 }
 
