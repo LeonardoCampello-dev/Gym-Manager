@@ -4,6 +4,11 @@ const { date, age } = require('../../lib/utils')
 module.exports = {
     index(req, res) {
         instructor.all((instructors) => {
+
+            for (let instructor of instructors) {
+                instructor.services = instructor.services.split(",")
+            }
+            
             return res.render("instructors/index", { instructors })
         })
     },
@@ -27,7 +32,7 @@ module.exports = {
         instructor.find(req.params.id, (instructor) => {
             if (!instructor) return res.send("Instructor not found!")
 
-            instructor.age = age(instructor.age)
+            instructor.age = age(instructor.birth)
             instructor.services = instructor.services.split(",")
 
             instructor.created_at = date(instructor.created_at).format
@@ -36,7 +41,13 @@ module.exports = {
         })
     },
     edit(req, res) {
-        return
+        instructor.find(req.params.id, (instructor) => {
+            if (!instructor) return res.send("Instructor not found!")
+
+            instructor.birth = date(instructor.birth).iso
+
+            return res.render("instructors/edit", { instructor })
+        })
     },
     put(req, res) {
         const keys = Object.keys(req.body)
@@ -47,7 +58,9 @@ module.exports = {
             }
         }
 
-        return
+        instructor.update(req.body, function() {
+            return res.redirect(`/instructors/${req.body.id}`)
+        })
     },
     delete(req, res) {
         return

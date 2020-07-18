@@ -215,6 +215,10 @@ a.button {
     text-align: left;
 }
 
+.table-container thead tr th:nth-child(2) {
+    text-align: center;
+}
+
 .table-container thead tr th:last-child {
     color: var(--action);
 }
@@ -254,6 +258,10 @@ tbody tr td:first-child span {
 tbody tr td:nth-child(1) {
     color: var(--primary-color);
     font-weight: bold;
+}
+
+tbody tr td:nth-child(2) {
+    text-align: center;
 }
 
 tbody tr:last-child td {
