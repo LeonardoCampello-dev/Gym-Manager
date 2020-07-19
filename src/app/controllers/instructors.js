@@ -1,9 +1,9 @@
-const instructor = require('../models/instructor')
+const Instructor = require('../models/Instructor')
 const { date, age } = require('../../lib/utils')
 
 module.exports = {
     index(req, res) {
-        instructor.all((instructors) => {
+        Instructor.all((instructors) => {
 
             for (let instructor of instructors) {
                 instructor.services = instructor.services.split(",")
@@ -24,12 +24,12 @@ module.exports = {
             }
         }
         
-        instructor.create(req.body, (instructor) => {
+        Instructor.create(req.body, (instructor) => {
             return res.redirect(`/instructors/${instructor.id}`)
         })
     },
     show(req, res) {
-        instructor.find(req.params.id, (instructor) => {
+        Instructor.find(req.params.id, (instructor) => {
             if (!instructor) return res.send("Instructor not found!")
 
             instructor.age = age(instructor.birth)
@@ -41,7 +41,7 @@ module.exports = {
         })
     },
     edit(req, res) {
-        instructor.find(req.params.id, (instructor) => {
+        Instructor.find(req.params.id, (instructor) => {
             if (!instructor) return res.send("Instructor not found!")
 
             instructor.birth = date(instructor.birth).iso
@@ -58,12 +58,12 @@ module.exports = {
             }
         }
 
-        instructor.update(req.body, () => {
+        Instructor.update(req.body, () => {
             return res.redirect(`/instructors/${req.body.id}`)
         })
     },
     delete(req, res) {
-        instructor.delete(req.body.id, () => {
+        Instructor.delete(req.body.id, () => {
             return res.redirect(`/instructors`)
         })
     }
