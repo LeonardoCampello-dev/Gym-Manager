@@ -4,6 +4,11 @@
 
 # <center> Gym Manager 🥇 </center> 
 
+[![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+![GitHub repo size](https://img.shields.io/github/repo-size/LeonardoCampello-dev/Gym-Manager?color=red)
+
+
 > Manage your gym with an agile application and a beautiful interface 💪
 
 ## 🚀 Technologies used
@@ -13,13 +18,15 @@ The following technologies were used
 - **[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)**
 - **[Node.js](https://nodejs.org/en/)**
 - **[Nunjucks](https://mozilla.github.io/nunjucks/)**
-
+- **[PostgreSQL](https://www.postgresql.org/)**
+  
 ### 📕 Libraries
 
 - [x] [Browsersync](https://www.browsersync.io/)
 - [x] [npm-run-all](https://www.npmjs.com/package/npm-run-all)
 - [x] [File System | Node.js](https://nodejs.org/api/fs.html)
 - [x] [method-override](https://www.npmjs.com/package/method-override)
+- [x] [node-postgres](https://www.npmjs.com/package/pg) 
 
 ### 🌉 API's
 
@@ -34,25 +41,23 @@ The following technologies were used
 
 **Trainers table**
 
-[![Image from Gyazo](https://i.gyazo.com/c82520885db824edec8c0078df5a0c2c.png)](https://gyazo.com/c82520885db824edec8c0078df5a0c2c)
+[![Image from Gyazo](https://i.gyazo.com/fabe64c3ee6d01f2f0a9e48276862530.png)](https://gyazo.com/fabe64c3ee6d01f2f0a9e48276862530)
 
 ---
 
 **Creating instructor**
 
-[![Image from Gyazo](https://i.gyazo.com/408ffbae4cc6f98d48c348159bb5053a.png)](https://gyazo.com/408ffbae4cc6f98d48c348159bb5053a)
-
-![Create-instructor](./.github/create-instructor.gif)
+[![Image from Gyazo](https://i.gyazo.com/5014a81dd92bfb06ed0bf652002cd15a.png)](https://gyazo.com/5014a81dd92bfb06ed0bf652002cd15a)
 
 ---
 
 **Creating member**
 
-[![Image from Gyazo](https://i.gyazo.com/beadcf253d21e3b4583bdb5d247a5825.png)](https://gyazo.com/beadcf253d21e3b4583bdb5d247a5825)
+[![Image from Gyazo](https://i.gyazo.com/7bf94ea5379ec78c07dd5859486efc84.png)](https://gyazo.com/7bf94ea5379ec78c07dd5859486efc84)
 
 **Profile editing (instructor / member)**
 
-![Edit](./.github/edit-members.gif)
+![Edit](./.github/edit.gif)
 
 ---
 
