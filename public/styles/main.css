@@ -213,7 +213,7 @@ a.button {
 }
 
 .table-container thead tr th {
-    text-align: left;
+    text-align: center;
 }
 
 .table-container thead tr th:nth-child(2) {
@@ -261,7 +261,8 @@ tbody tr td:nth-child(1) {
     font-weight: bold;
 }
 
-tbody tr td:nth-child(2) {
+tbody tr td:nth-child(2),
+tbody tr td:nth-child(3) {
     text-align: center;
 }
 
