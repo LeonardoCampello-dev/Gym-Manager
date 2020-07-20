@@ -8,7 +8,9 @@ module.exports = {
         })
     },
     create(req, res) {
-        return res.render("members/create")
+        Member.instructorsSelectOptions((options) => {
+            return res.render("members/create", { instructorsSelectOptions: options })
+        })
     },
     post(req, res) {
         const keys = Object.keys(req.body)
@@ -18,7 +20,7 @@ module.exports = {
                 return res.send("Por favor, preencha todos os campos!")
             }
         }
-        
+
         Member.create(req.body, (member) => {
             return res.redirect(`/members/${member.id}`)
         })
@@ -38,7 +40,9 @@ module.exports = {
 
             member.birth = date(member.birth).iso
 
-            return res.render("members/edit", { member })
+            Member.instructorsSelectOptions((options) => {
+                return res.render("members/edit", { member, instructorsSelectOptions: options })
+            })
         })
     },
     put(req, res) {

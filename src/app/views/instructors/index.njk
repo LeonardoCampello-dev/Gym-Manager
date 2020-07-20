@@ -8,6 +8,7 @@
             <tr>
                 <th>Instrutor</th>
                 <th>Atendimento</th>
+                <th>Alunos</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -23,6 +24,7 @@
                     <span>{{ service }}</span>
                     {% endfor %}
                 </td>
+                <td>{{ instructor.total_members }}</td>
                 <td><a href="/instructors/{{ instructor.id }}">Ver</a></td>
             </tr>
             {% endfor %}

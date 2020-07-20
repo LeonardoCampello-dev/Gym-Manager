@@ -8,7 +8,7 @@ module.exports = {
             for (let instructor of instructors) {
                 instructor.services = instructor.services.split(",")
             }
-            
+
             return res.render("instructors/index", { instructors })
         })
     },
@@ -23,7 +23,7 @@ module.exports = {
                 return res.send("Por favor, preencha todos os campos!")
             }
         }
-        
+
         Instructor.create(req.body, (instructor) => {
             return res.redirect(`/instructors/${instructor.id}`)
         })

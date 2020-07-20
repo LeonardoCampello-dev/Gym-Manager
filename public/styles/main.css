@@ -209,6 +209,7 @@ a.button {
 
 .table-container table {
     border-spacing: 0;
+    margin-bottom: 24px;
 }
 
 .table-container thead tr th {
@@ -262,6 +263,10 @@ tbody tr td:nth-child(1) {
 
 tbody tr td:nth-child(2) {
     text-align: center;
+}
+
+tbody tr td:nth-child(3) {
+    font-weight: bold;
 }
 
 tbody tr:last-child td {

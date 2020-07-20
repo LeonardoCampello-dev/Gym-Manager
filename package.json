@@ -1,5 +1,5 @@
 {
-  "name": "gym-control",
+  "name": "gym-manager",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
