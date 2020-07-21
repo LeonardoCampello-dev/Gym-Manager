@@ -2,35 +2,46 @@
 
 {% block content %}
 
-<div class="card table-container">
-    <table width="100%">
-        <thead>
-            <tr>
-                <th>Instrutor</th>
-                <th>Atendimento</th>
-                <th>Alunos</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for instructor in instructors %}
-            <tr>
-                <td>
-                    <span style="background-image: url({{ instructor.avatar_url }})"></span>
-                    {{ instructor.name }}
-                </td>
-                <td>
-                    {% for service in instructor.services %}
-                    <span>{{ service }}</span>
-                    {% endfor %}
-                </td>
-                <td>{{ instructor.total_members }}</td>
-                <td><a href="/instructors/{{ instructor.id }}">Ver</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="/instructors/create"><span><img src="/assets/add.svg" alt="Add icon"></span>Novo instrutor</a>
-</div>
+    <div class="card table-container">
+        <table width="100%">
+
+            <form action="/instructors">
+                <div class="header">
+                    <input type="text" name="filter" placeholder="Nome ou Atendimento" value="{{ filter }}">
+                    <button type="submit">Filtrar</button>
+                </div>
+            </form>
+
+            <thead>
+                <tr>
+                    <th>Instrutor</th>
+                    <th>Atendimento</th>
+                    <th>Alunos</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for instructor in instructors %}
+                    <tr>
+                        <td>
+                            <span style="background-image: url({{ instructor.avatar_url }})"></span>
+                            {{ instructor.name }}
+                        </td>
+                        <td>
+                            {% for service in instructor.services %}
+                                <span>{{ service }}</span>
+                            {% endfor %}
+                        </td>
+                        <td>{{ instructor.total_members }}</td>
+                        <td>
+                            <a href="/instructors/{{ instructor.id }}">Ver</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/instructors/create">
+            <span><img src="/assets/add.svg" alt="Add icon"></span>Novo instrutor</a>
+    </div>
 
 {% endblock content %}

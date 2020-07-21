@@ -3,14 +3,25 @@ const { date, age } = require('../../lib/utils')
 
 module.exports = {
     index(req, res) {
-        Instructor.all((instructors) => {
+        const { filter } = req.query
 
-            for (let instructor of instructors) {
-                instructor.services = instructor.services.split(",")
-            }
+        if (filter) {
+            Instructor.findBy(filter, (instructors) => {
+                for (let instructor of instructors) {
+                    instructor.services = instructor.services.split(",")
+                }
 
-            return res.render("instructors/index", { instructors })
-        })
+                return res.render("instructors/index", { filter, instructors })
+            })
+        } else {
+            Instructor.all((instructors) => {
+                for (let instructor of instructors) {
+                    instructor.services = instructor.services.split(",")
+                }
+
+                return res.render("instructors/index", { instructors })
+            })
+        }
     },
     create(req, res) {
         return res.render("instructors/create")
