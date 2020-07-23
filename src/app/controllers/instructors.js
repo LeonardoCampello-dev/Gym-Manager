@@ -15,10 +15,17 @@ module.exports = {
             limit,
             offset,
             callback(instructors) {
+                
+                const pagination = {
+                    total: Math.ceil(instructors[0].total / limit),
+                    page
+                }
+                
                 for (let instructor of instructors) {
                     instructor.services = instructor.services.split(",")
                 }
-                return res.render("instructors/index", { filter, instructors })
+
+                return res.render("instructors/index", { instructors, filter, pagination })
             }
         }
 
