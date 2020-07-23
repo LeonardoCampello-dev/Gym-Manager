@@ -223,14 +223,21 @@ a.button {
     align-self: start;
 }
 
-.header a span img {
+.header a span {
     width: 14px;
     height: 14px;
+    background-position: center;
+    background-size: cover;
     margin-right: 8px;
 }
 
 .header a {
-    width: 140px;
+    width: 160px;
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
 }
 
 .header a:hover {
