@@ -7,8 +7,14 @@
 
             <form action="/instructors">
                 <div class="header">
-                    <input type="text" name="filter" placeholder="Nome ou Atendimento" value="{{ filter }}">
-                    <button type="submit">Filtrar</button>
+                    <a href="/instructors/create">
+                        <span><img src="/assets/add.svg" alt="Add icon"></span>
+                        Novo instrutor
+                    </a>
+                    <div>
+                        <input type="text" name="filter" placeholder="Nome ou Atendimento" value="{{ filter }}">
+                        <button type="submit">Filtrar</button>
+                    </div>
                 </div>
             </form>
 
@@ -20,6 +26,7 @@
                     <th>Ações</th>
                 </tr>
             </thead>
+
             <tbody>
                 {% for instructor in instructors %}
                     <tr>
@@ -39,12 +46,11 @@
                     </tr>
                 {% endfor %}
             </tbody>
+            
         </table>
-        
-        <div class="pagination" data-page = 15 data-total = 20></div>
-        
-        <a href="/instructors/create">
-            <span><img src="/assets/add.svg" alt="Add icon"></span>Novo instrutor</a>
+
+        <div class="pagination" data-page="15" data-total="20"></div>
+
     </div>
 
 {% endblock content %}

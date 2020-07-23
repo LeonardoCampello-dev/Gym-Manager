@@ -202,7 +202,8 @@ a.button {
 /* ================ INDEX ================ */
 
 .table-container {
-    display: block;
+    display: grid;
+    grid-template: 64px 1fr 16px / 1fr;
     padding: 40px;
     box-sizing: border-box;
 }
@@ -216,23 +217,42 @@ a.button {
     color: var(--action);
 }
 
-.table-container .header {
-    width: 50%;
+.header {
     display: grid;
-    grid-template-columns: 1fr 170px;
-    align-items: center;
-    gap: 8px;
-    margin: 0 auto 24px;
+    grid-template-columns: 1fr 1fr;
+    align-self: start;
 }
 
-.table-container .header input {
+.header a span img {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+}
+
+.header a {
+    width: 140px;
+}
+
+.header a:hover {
+    color: #555;
+    background-color: var(--secondary-color);
+    transition: 200ms ease-in-out;
+}
+
+.header div {
+    display: grid;
+    grid-template-columns: 1fr 128px;
+    gap: 8px;
+}
+
+.header div input {
     padding: 4px 8px;
     border: 1px solid var(--action);
     border-radius: 4px;
     box-sizing: border-box;
 }
 
-.table-container .header button {
+.header div button {
     width: 128px;
     margin: 0;
 }
@@ -285,7 +305,7 @@ tbody tr:last-child td {
 }
 
 tbody tr td:last-child a,
-.table-container > a {
+.header a {
     color: #fff;
     background-color: var(--primary-color);
     border-radius: 4px;
@@ -301,23 +321,20 @@ tbody tr td:last-child a:hover {
     transition: 300ms ease-in-out;  
 }
 
-.table-container > a {
-    margin-bottom: 16px;
-    display: inline-block;
-    position: absolute;
-    bottom: 0;
+.pagination {
+    margin: 0;
+    align-self: end;
+    justify-self: center;
 }
 
-.table-container > a span img {
-    width: 14px;
-    height: 14px;
-    background-position: center;
-    background-size: cover;
-    margin-right: 8px;
+.pagination a,
+.pagination span {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: 16px;
 }
 
-.table-container > a:hover {
-    color: #555;
-    background-color: var(--secondary-color);
-    transition: 300ms ease-in-out;
+.pagination a:hover {
+    filter: brightness(0.3);
+    border-bottom: 1px solid var(--action);
 }

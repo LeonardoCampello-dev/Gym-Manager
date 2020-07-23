@@ -58,5 +58,3 @@ for (let page of pages) {
 }
 
 pagination.innerHTML = elements
-
-console.log(pages)
