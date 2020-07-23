@@ -3,9 +3,29 @@ const { date } = require('../../lib/utils')
 
 module.exports = {
     index(req, res) {
-        Member.all((members) => {
-            return res.render("members/index", { members })
-        })
+        let { filter, page, limit } = req.query
+
+        page = page || 1
+        limit = limit || 3
+        offset = limit * (page - 1)
+
+        params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(members) {
+                
+                const pagination = {
+                    total: Math.ceil(members[0].total / limit),
+                    page
+                }
+
+                return res.render("members/index", { members, filter, pagination })
+            }
+        }
+
+        Member.paginate(params)
     },
     create(req, res) {
         Member.instructorsSelectOptions((options) => {

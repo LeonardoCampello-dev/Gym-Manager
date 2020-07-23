@@ -6,7 +6,7 @@ module.exports = {
         let { filter, page, limit } = req.query
 
         page = page || 1
-        limit = limit || 2
+        limit = limit || 3
         offset = limit * (page - 1)
 
         params = {
@@ -30,25 +30,6 @@ module.exports = {
         }
 
         Instructor.paginate(params)
-
-
-        // if (filter) {
-        //     Instructor.findBy(filter, (instructors) => {
-        //         for (let instructor of instructors) {
-        //             instructor.services = instructor.services.split(",")
-        //         }
-
-        //         return res.render("instructors/index", { filter, instructors })
-        //     })
-        // } else {
-        //     Instructor.all((instructors) => {
-        //         for (let instructor of instructors) {
-        //             instructor.services = instructor.services.split(",")
-        //         }
-
-        //         return res.render("instructors/index", { instructors })
-        //     })
-        // }
     },
     create(req, res) {
         return res.render("instructors/create")

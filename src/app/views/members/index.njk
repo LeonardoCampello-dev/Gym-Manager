@@ -5,9 +5,9 @@
     <div class="card table-container">
         <table width="100%">
 
-            <form action="/instructors">
+            <form action="/members">
                 <div class="header">
-                    <a href="/instructors/create">
+                    <a href="/members/create">
                         <span style="background-image: url(/assets/add.svg)"></span>
                         Novo membro
                     </a>
@@ -46,9 +46,11 @@
             </tbody>
 
         </table>
-
-        <div class="pagination" data-page="15" data-total="20"></div>
+        
+    <div class="pagination" data-page="{{ pagination.page}}" data-total="{{ pagination.total }}" data-filter="{{ filter }}"></div>
 
     </div>
+
+
 
 {% endblock content %}
