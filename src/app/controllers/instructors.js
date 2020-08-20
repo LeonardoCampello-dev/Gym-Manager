@@ -15,12 +15,12 @@ module.exports = {
             limit,
             offset,
             callback(instructors) {
-                
+
                 const pagination = {
                     total: Math.ceil(instructors[0].total / limit),
                     page
                 }
-                
+
                 for (let instructor of instructors) {
                     instructor.services = instructor.services.split(",")
                 }
@@ -34,7 +34,7 @@ module.exports = {
     create(req, res) {
         return res.render("instructors/create")
     },
-    post(req, res) {
+    async post(req, res) {
         const keys = Object.keys(req.body)
 
         for (key of keys) {
@@ -43,32 +43,34 @@ module.exports = {
             }
         }
 
-        Instructor.create(req.body, (instructor) => {
-            return res.redirect(`/instructors/${instructor.id}`)
-        })
+        let results = await Instructor.create(req.body)
+        const instructorId = results.rows[0].id
+
+        return res.redirect(`/instructors/${instructorId}`)
     },
-    show(req, res) {
-        Instructor.find(req.params.id, (instructor) => {
-            if (!instructor) return res.send("Instructor not found!")
+    async show(req, res) {
+        let results = await Instructor.find(req.params.id)
+        const instructor = results.rows[0]
 
-            instructor.age = age(instructor.birth)
-            instructor.services = instructor.services.split(",")
+        if (!instructor) return res.send("Instructor not found!")
 
-            instructor.created_at = date(instructor.created_at).format
+        instructor.age = age(instructor.birth)
+        instructor.services = instructor.services.split(",")
+        instructor.created_at = date(instructor.created_at).format
 
-            return res.render("instructors/show", { instructor })
-        })
+        return res.render("instructors/show", { instructor })
     },
-    edit(req, res) {
-        Instructor.find(req.params.id, (instructor) => {
-            if (!instructor) return res.send("Instructor not found!")
+    async edit(req, res) {
+        let results = await Instructor.find(req.params.id)
+        const instructor = results.rows[0]
 
-            instructor.birth = date(instructor.birth).iso
+        if (!instructor) return res.send("Instructor not found!")
 
-            return res.render("instructors/edit", { instructor })
-        })
+        instructor.birth = date(instructor.birth).iso
+
+        return res.render("instructors/edit", { instructor })
     },
-    put(req, res) {
+    async put(req, res) {
         const keys = Object.keys(req.body)
 
         for (key of keys) {
@@ -77,14 +79,14 @@ module.exports = {
             }
         }
 
-        Instructor.update(req.body, () => {
-            return res.redirect(`/instructors/${req.body.id}`)
-        })
+        let results = await Instructor.update(req.body)
+
+        return res.redirect(`/instructors/${req.body.id}`)
     },
-    delete(req, res) {
-        Instructor.delete(req.body.id, () => {
-            return res.redirect(`/instructors`)
-        })
+    async delete(req, res) {
+        let results = await Instructor.delete(req.body.id)
+
+        return res.redirect(`/instructors`)
     }
 }
 

@@ -17,7 +17,7 @@ module.exports = {
             callback(results.rows)
         })
     },
-    create(data, callback) {
+    create(data) {
         const query = `
         INSERT INTO instructors (
             avatar_url,
@@ -39,19 +39,10 @@ module.exports = {
             date(Date.now()).iso
         ]
 
-        db.query(query, values, (err, results) => {
-            if (err) throw `Database error: ${err}`
-
-            callback(results.rows[0])
-        })
-
+        return db.query(query, values)
     },
-    find(id, callback) {
-        db.query(`SELECT * FROM instructors WHERE id = $1`, [id], (err, results) => {
-            if (err) throw `Database error: ${err}`
-
-            callback(results.rows[0])
-        })
+    find(id) {
+        return db.query(`SELECT * FROM instructors WHERE id = $1`, [id])
     },
     findBy(filter, callback) {
         const query = `
@@ -70,7 +61,7 @@ module.exports = {
             callback(results.rows)
         })
     },
-    update(data, callback) {
+    update(data) {
         const query = `
             UPDATE instructors SET
                 avatar_url=($1),
@@ -90,18 +81,10 @@ module.exports = {
             data.id
         ]
 
-        db.query(query, values, (err, results) => {
-            if (err) throw `Database error: ${err}`
-
-            callback()
-        })
+        return db.query(query, values)
     },
-    delete(id, callback) {
-        db.query(`DELETE FROM instructors WHERE id = $1`, [id], (err, results) => {
-            if (err) throw `Database error: ${err}`
-
-            return callback()
-        })
+    delete(id) {
+        return db.query(`DELETE FROM instructors WHERE id = $1`, [id])
     },
     paginate(params) {
         let { filter, limit, offset, callback } = params

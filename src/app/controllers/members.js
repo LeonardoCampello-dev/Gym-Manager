@@ -15,7 +15,6 @@ module.exports = {
             limit,
             offset,
             callback(members) {
-                
                 const pagination = {
                     total: Math.ceil(members[0].total / limit),
                     page
@@ -27,12 +26,13 @@ module.exports = {
 
         Member.paginate(params)
     },
-    create(req, res) {
-        Member.instructorsSelectOptions((options) => {
-            return res.render("members/create", { instructorsSelectOptions: options })
-        })
+    async create(req, res) {
+        let results = await Member.instructorsSelectOptions()
+        const instructorsSelectOptions = results.rows
+
+        return res.render("members/create", { instructorsSelectOptions })
     },
-    post(req, res) {
+    async post(req, res) {
         const keys = Object.keys(req.body)
 
         for (key of keys) {
@@ -41,31 +41,35 @@ module.exports = {
             }
         }
 
-        Member.create(req.body, (member) => {
-            return res.redirect(`/members/${member.id}`)
-        })
+        let results = await Member.create(req.body)
+        const memberId = results.rows[0].id
+
+        return res.redirect(`/members/${memberId}`)
     },
-    show(req, res) {
-        Member.find(req.params.id, (member) => {
-            if (!member) return res.send("Member not found!")
+    async show(req, res) {
+        let results = await Member.find(req.params.id)
+        const member = results.rows[0]
 
-            member.birth = date(member.birth).birthDay
+        if (!member) return res.send("Member not found!")
 
-            return res.render("members/show", { member })
-        })
+        member.birth = date(member.birth).birthDay
+
+        return res.render("members/show", { member })
     },
-    edit(req, res) {
-        Member.find(req.params.id, (member) => {
-            if (!member) return res.send("Member not found!")
+    async edit(req, res) {
+        let results = await Member.find(req.params.id)
+        const member = results.rows[0]
 
-            member.birth = date(member.birth).iso
+        if (!member) return res.send("Member not found!")
 
-            Member.instructorsSelectOptions((options) => {
-                return res.render("members/edit", { member, instructorsSelectOptions: options })
-            })
-        })
+        member.birth = date(member.birth).iso
+
+        results = await Member.instructorsSelectOptions()
+        const instructorsSelectOptions = results.rows
+
+        return res.render("members/edit", { member, instructorsSelectOptions })
     },
-    put(req, res) {
+    async put(req, res) {
         const keys = Object.keys(req.body)
 
         for (key of keys) {
@@ -74,13 +78,13 @@ module.exports = {
             }
         }
 
-        Member.update(req.body, () => {
-            return res.redirect(`/members/${req.body.id}`)
-        })
+        let results = await Member.update(req.body)
+
+        return res.redirect(`/members/${req.body.id}`)
     },
-    delete(req, res) {
-        Member.delete(req.body.id, () => {
-            return res.redirect(`/members`)
-        })
+    async delete(req, res) {
+        let results = await Member.delete(req.body.id)
+
+        return res.redirect(`/members`)
     }
 }

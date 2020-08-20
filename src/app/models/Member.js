@@ -9,7 +9,7 @@ module.exports = {
             callback(results.rows)
         })
     },
-    create(data, callback) {
+    create(data) {
         const query = `
         INSERT INTO members (
             avatar_url,
@@ -37,14 +37,9 @@ module.exports = {
             data.instructor
         ]
 
-        db.query(query, values, (err, results) => {
-            if (err) throw `Database error: ${err}`
-
-            callback(results.rows[0])
-        })
-
+        return db.query(query, values)
     },
-    find(id, callback) {
+    find(id) {
         const query = `
         SELECT members.*, instructors.name AS instructor_name
         FROM members
@@ -52,13 +47,9 @@ module.exports = {
         WHERE members.id = $1
         `
 
-        db.query(query, [id], (err, results) => {
-            if (err) throw `Database error: ${err}`
-
-            callback(results.rows[0])
-        })
+        return db.query(query, [id])
     },
-    update(data, callback) {
+    update(data) {
         const query = `
             UPDATE members SET
                 avatar_url=($1),
@@ -86,25 +77,13 @@ module.exports = {
             data.id
         ]
 
-        db.query(query, values, (err, results) => {
-            if (err) throw `Database error: ${err}`
-
-            callback()
-        })
+        return db.query(query, values)
     },
-    delete(id, callback) {
-        db.query(`DELETE FROM members WHERE id = $1`, [id], (err, results) => {
-            if (err) throw `Database error: ${err}`
-
-            return callback()
-        })
+    delete(id) {
+        return db.query(`DELETE FROM members WHERE id = $1`, [id])
     },
-    instructorsSelectOptions(callback) {
-        db.query(`SELECT name, id FROM instructors`, (err, results) => {
-            if (err) throw `Database error: ${err}`
-
-            callback(results.rows)
-        })
+    instructorsSelectOptions() {
+        return db.query(`SELECT name, id FROM instructors`)
     },
     paginate(params) {
         let { filter, limit, offset, callback } = params
