@@ -4,9 +4,9 @@
 
 # <center> Gym Manager 🥇 </center> 
 
-[![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
-![GitHub repo size](https://img.shields.io/github/repo-size/LeonardoCampello-dev/Gym-Manager?color=red)
+![GitHub last commit](https://img.shields.io/github/last-commit/LeonardoCampello-dev/Gym-Manager?color=black)
+![GitHub repo size](https://img.shields.io/github/repo-size/LeonardoCampello-dev/Gym-Manager?color=black)
+![GitHub](https://img.shields.io/github/license/LeonardoCampello-dev/Gym-Manager?color=black)
 
 
 > Manage your gym with an agile application and a beautiful interface 💪
@@ -16,7 +16,7 @@
 The following technologies were used
 
 - **[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)**
-- **[Node.js](https://nodejs.org/en/)**
+- **[Node.js](https://bashjs.org/en/)**
 - **[Nunjucks](https://mozilla.github.io/nunjucks/)**
 - **[PostgreSQL](https://www.postgresql.org/)**
   
@@ -71,7 +71,7 @@ The following technologies were used
 
 First you need to have [Node.js](https://nodejs.org/en/download/) installed, then **run the following command:**
 
-``` git 
+``` **bash** 
 
 git clone https://github.com/LeonardoCampello-dev/Gym-Manager.git
 
@@ -79,7 +79,7 @@ git clone https://github.com/LeonardoCampello-dev/Gym-Manager.git
 
 **To install the dependencies**
 
-``` node
+``` bash
 
 npm install
 
@@ -89,7 +89,7 @@ npm install
 
 Run the following command to start the application in a development environment
 
-``` node
+``` bash
 
 npm start
 
