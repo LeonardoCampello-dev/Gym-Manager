@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://i.pinimg.com/originals/58/b8/01/58b801823c2ee845a6fa3e749dbe3d83.png">
+    <img src="https://i.pinimg.com/originals/58/b8/01/58b801823c2ee845a6fa3e749dbe3d83.png" width="300">
 </h1>
 
 # <center> Gym Manager 🥇 </center> 
@@ -41,29 +41,23 @@ The following technologies were used
 
 **Trainers table**
 
-[![Image from Gyazo](https://i.gyazo.com/fabe64c3ee6d01f2f0a9e48276862530.png)](https://gyazo.com/fabe64c3ee6d01f2f0a9e48276862530)
+![table](.github/table.png)
 
 ---
 
 **Creating instructor**
 
-[![Image from Gyazo](https://i.gyazo.com/5014a81dd92bfb06ed0bf652002cd15a.png)](https://gyazo.com/5014a81dd92bfb06ed0bf652002cd15a)
+![create-instructor](./.github/newTeacher.png)
 
 ---
 
 **Creating member**
 
-[![Image from Gyazo](https://i.gyazo.com/7bf94ea5379ec78c07dd5859486efc84.png)](https://gyazo.com/7bf94ea5379ec78c07dd5859486efc84)
+![create-member](.github/newMember.png)
 
 **Profile editing (instructor / member)**
 
-![Edit](./.github/edit.gif)
-
----
-
-**Profile deletion (instructor / member)**
-
-![Delete](./.github/delete.gif)
+![edit](.github/memberDetails.png)
 
 ---
 
@@ -71,28 +65,23 @@ The following technologies were used
 
 First you need to have [Node.js](https://nodejs.org/en/download/) installed, then **run the following command:**
 
-``` **bash** 
-
+``` bash 
 git clone https://github.com/LeonardoCampello-dev/Gym-Manager.git
-
 ```
 
 **To install the dependencies**
 
 ``` bash
-
 npm install
-
 ```
 
 ## 💨 Running project
 
-Run the following command to start the application in a development environment
+
 
 ``` bash
-
+## Run the following command to start the application in a development environment
 npm start
-
 ```
 
 ## 📜 License
