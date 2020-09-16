@@ -7,8 +7,8 @@ module.exports = {
 
         const month = today.getMonth() - birthDate.getMonth()
 
-        if (month < 0 || 
-            month == 0 && 
+        if (month < 0 ||
+            month == 0 &&
             today.getDate() <= birthDate.getDate()) {
             age -= 1
         }
@@ -23,7 +23,7 @@ module.exports = {
         const day = `0${date.getUTCDate()}`.slice(-2)
 
         return {
-            day, 
+            day,
             month,
             year,
             iso: `${year}-${month}-${day}`,

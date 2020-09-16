@@ -9,7 +9,7 @@ module.exports = {
             callback(results.rows)
         })
     },
-    create(data) {
+    async create(data) {
         const query = `
         INSERT INTO members (
             avatar_url,
@@ -37,9 +37,11 @@ module.exports = {
             data.instructor
         ]
 
-        return db.query(query, values)
+        const results = await db.query(query, values)
+
+        return results.rows[0].id
     },
-    find(id) {
+    async find(id) {
         const query = `
         SELECT members.*, instructors.name AS instructor_name
         FROM members
@@ -47,7 +49,9 @@ module.exports = {
         WHERE members.id = $1
         `
 
-        return db.query(query, [id])
+        const results = await db.query(query, [id])
+
+        return results.rows[0]
     },
     update(data) {
         const query = `
@@ -82,14 +86,15 @@ module.exports = {
     delete(id) {
         return db.query(`DELETE FROM members WHERE id = $1`, [id])
     },
-    instructorsSelectOptions() {
-        return db.query(`SELECT name, id FROM instructors`)
+    async instructorsSelectOptions() {
+        const results = await db.query(`SELECT name, id FROM instructors`)
+        return results.rows
     },
     paginate(params) {
         let { filter, limit, offset, callback } = params
 
-        let query = "",
-            filterQuery = "",
+        let query = '',
+            filterQuery = '',
             totalQuery = `(
                 SELECT count(*) FROM members
             ) AS total`

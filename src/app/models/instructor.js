@@ -17,7 +17,7 @@ module.exports = {
             callback(results.rows)
         })
     },
-    create(data) {
+    async create(data) {
         const query = `
         INSERT INTO instructors (
             avatar_url,
@@ -39,10 +39,12 @@ module.exports = {
             date(Date.now()).iso
         ]
 
-        return db.query(query, values)
+        const results = await db.query(query, values)
+        return results.rows[0].id
     },
-    find(id) {
-        return db.query(`SELECT * FROM instructors WHERE id = $1`, [id])
+    async find(id) {
+        const results = await db.query(`SELECT * FROM instructors WHERE id = $1`, [id])
+        return results.rows[0]
     },
     findBy(filter, callback) {
         const query = `
@@ -89,8 +91,8 @@ module.exports = {
     paginate(params) {
         let { filter, limit, offset, callback } = params
 
-        let query = "",
-            filterQuery = "",
+        let query = '',
+            filterQuery = '',
             totalQuery = `(
                 SELECT count(*) FROM instructors
             ) AS total`
