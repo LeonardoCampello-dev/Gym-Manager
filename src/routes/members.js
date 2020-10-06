@@ -1,15 +1,17 @@
 const express = require('express')
 const routes = express.Router()
 
-const members = require('../app/controllers/members')
+const members = require('../app/controllers/MembersController')
 
-routes.get("/", members.index)
-routes.get("/create", members.create)
-routes.get("/:id", members.show)
-routes.get("/:id/edit", members.edit)
+const { fillAllFields } = require('../validotors/fields')
 
-routes.post("/", members.post)
-routes.put("/", members.put)
-routes.delete("/", members.delete)
+routes.get('/', members.index)
+routes.get('/create', members.create)
+routes.get('/:id', members.show)
+routes.get('/:id/edit', members.edit)
+
+routes.post('/', fillAllFields, members.post)
+routes.put('/', fillAllFields, members.put)
+routes.delete('/', members.delete)
 
 module.exports = routes

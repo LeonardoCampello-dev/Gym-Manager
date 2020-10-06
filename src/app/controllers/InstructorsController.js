@@ -25,24 +25,16 @@ module.exports = {
                     instructor.services = instructor.services.split(',')
                 }
 
-                return res.render('instructors/index', { instructors, filter, pagination })
+                return res.render('instructors/index.njk', { instructors, filter, pagination })
             }
         }
 
         Instructor.paginate(params)
     },
     create(req, res) {
-        return res.render('instructors/create')
+        return res.render('instructors/create.njk')
     },
     async post(req, res) {
-        const keys = Object.keys(req.body)
-
-        for (key of keys) {
-            if (req.body[key] == '') {
-                return res.send('Por favor, preencha todos os campos!')
-            }
-        }
-
         let instructorId = await Instructor.create(req.body)
 
         return res.redirect(`/instructors/${instructorId}`)
@@ -50,32 +42,24 @@ module.exports = {
     async show(req, res) {
         let instructor = await Instructor.find(req.params.id)
 
-        if (!instructor) return res.send('Instructor not found!')
+        if (!instructor) return res.send('Instrutor não encontrado!')
 
         instructor.age = age(instructor.birth)
         instructor.services = instructor.services.split(',')
         instructor.created_at = date(instructor.created_at).format
 
-        return res.render('instructors/show', { instructor })
+        return res.render('instructors/show.njk', { instructor })
     },
     async edit(req, res) {
         let instructor = await Instructor.find(req.params.id)
 
-        if (!instructor) return res.send('Instructor not found!')
+        if (!instructor) return res.send('Instrutor não encontrado!')
 
         instructor.birth = date(instructor.birth).iso
 
-        return res.render('instructors/edit', { instructor })
+        return res.render('instructors/edit.njk', { instructor })
     },
     async put(req, res) {
-        const keys = Object.keys(req.body)
-
-        for (key of keys) {
-            if (req.body[key] == '') {
-                return res.send('Por favor, preencha todos os campos!')
-            }
-        }
-
         await Instructor.update(req.body)
 
         return res.redirect(`/instructors/${req.body.id}`)
