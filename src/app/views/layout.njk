@@ -5,18 +5,14 @@
         {% block head %}
             <title>Gym Manager</title>
         {% endblock %}
+        
         <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="/styles/main.css">
+        <link rel="stylesheet" href="/styles/styles.css">
     </head>
 
     <body>
-        <header>
-            <img src="/assets/logo.png" alt="Logo">
-            <div class="links">
-                <a href="/instructors">Instrutores</a>
-                <a href="/members">Membros</a>
-            </div>
-        </header>
+
+        {% include 'parts/header.njk' %}
 
         {% block content %}{% endblock %}        
 
