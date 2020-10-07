@@ -88,7 +88,7 @@ module.exports = {
         const results = await db.query(`SELECT name, id FROM instructors`)
         return results.rows
     },
-    async paginate(params) {
+    async paginate({ filter, limit, offset }) {
         let query = '',
             filterQuery = '',
             totalQuery = `(
