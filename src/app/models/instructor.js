@@ -2,7 +2,7 @@ const { date } = require('../../lib/utils')
 const db = require('../../config/db')
 
 module.exports = {
-    all(callback) {
+    async all() {
         const query = `
         SELECT instructors.*, count(members) AS total_members
         FROM instructors
@@ -11,11 +11,9 @@ module.exports = {
         ORDER BY total_members DESC
         `
 
-        db.query(query, (err, results) => {
-            if (err) throw `Database error: ${err}`
+        const results = await db.query(query)
 
-            callback(results.rows)
-        })
+        return results.rows
     },
     async create(data) {
         const query = `
@@ -40,13 +38,15 @@ module.exports = {
         ]
 
         const results = await db.query(query, values)
+
         return results.rows[0].id
     },
     async find(id) {
         const results = await db.query(`SELECT * FROM instructors WHERE id = $1`, [id])
+
         return results.rows[0]
     },
-    findBy(filter, callback) {
+    async findBy(filter) {
         const query = `
         SELECT instructors.*, count(members) AS total_members
         FROM instructors
@@ -57,11 +57,9 @@ module.exports = {
         ORDER BY total_members DESC
         `
 
-        db.query(query, (err, results) => {
-            if (err) throw `Database error: ${err}`
+        const results = await db.query(query)
 
-            callback(results.rows)
-        })
+        return results.rows
     },
     update(data) {
         const query = `
@@ -88,9 +86,7 @@ module.exports = {
     delete(id) {
         return db.query(`DELETE FROM instructors WHERE id = $1`, [id])
     },
-    paginate(params) {
-        let { filter, limit, offset, callback } = params
-
+    async paginate({ filter, limit, offset }) {
         let query = '',
             filterQuery = '',
             totalQuery = `(
@@ -98,7 +94,6 @@ module.exports = {
             ) AS total`
 
         if (filter) {
-
             filterQuery = `
             WHERE instructors.name ILIKE '%${filter}%'
             OR instructors.services ILIKE '%${filter}%'
@@ -118,10 +113,8 @@ module.exports = {
         GROUP BY instructors.id LIMIT $1 OFFSET $2
         `
 
-        db.query(query, [limit, offset], (err, results) => {
-            if (err) throw `Database error: ${err}`
+        const results = await db.query(query, [limit, offset])
 
-            callback(results.rows)
-        })
+        return results.rows
     }
 }

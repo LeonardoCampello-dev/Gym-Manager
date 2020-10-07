@@ -2,12 +2,10 @@ const { date } = require('../../lib/utils')
 const db = require('../../config/db')
 
 module.exports = {
-    all(callback) {
-        db.query(`SELECT * FROM members ORDER BY name ASC`, (err, results) => {
-            if (err) throw `Database error: ${err}`
+    async all(callback) {
+        const results = await db.query(`SELECT * FROM members ORDER BY name ASC`)
 
-            callback(results.rows)
-        })
+        return results.rows
     },
     async create(data) {
         const query = `
@@ -90,9 +88,7 @@ module.exports = {
         const results = await db.query(`SELECT name, id FROM instructors`)
         return results.rows
     },
-    paginate(params) {
-        let { filter, limit, offset, callback } = params
-
+    async paginate(params) {
         let query = '',
             filterQuery = '',
             totalQuery = `(
@@ -100,7 +96,6 @@ module.exports = {
             ) AS total`
 
         if (filter) {
-
             filterQuery = `
             WHERE members.name ILIKE '%${filter}%'
             OR members.email ILIKE '%${filter}%'
@@ -119,10 +114,8 @@ module.exports = {
         LIMIT $1 OFFSET $2
         `
 
-        db.query(query, [limit, offset], (err, results) => {
-            if (err) throw `Database error: ${err}`
+        const results = await db.query(query, [limit, offset])
 
-            callback(results.rows)
-        })
+        return results.rows
     }
 }

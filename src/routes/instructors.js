@@ -3,7 +3,7 @@ const routes = express.Router()
 
 const instructors = require('../app/controllers/InstructorsController')
 
-const { fillAllFields } = require('../validotors/fields')
+const { fillAllFields } = require('../validators/fields')
 
 routes.get('/', instructors.index)
 routes.get('/create', instructors.create)

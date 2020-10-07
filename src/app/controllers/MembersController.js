@@ -2,68 +2,95 @@ const Member = require('../models/Member')
 const { date } = require('../../lib/utils')
 
 module.exports = {
-    index(req, res) {
-        let { filter, page, limit } = req.query
+    async index(req, res) {
+        try {
+            let { filter, page, limit } = req.query
 
-        page = page || 1
-        limit = limit || 3
-        offset = limit * (page - 1)
+            page = page || 1
+            limit = limit || 3
+            offset = limit * (page - 1)
 
-        params = {
-            filter,
-            page,
-            limit,
-            offset,
-            callback(members) {
-                const pagination = {
-                    total: Math.ceil(members[0].total / limit),
-                    page
-                }
-
-                return res.render('members/index.njk', { members, filter, pagination })
+            params = {
+                page,
+                limit,
+                offset,
+                filter
             }
-        }
 
-        Member.paginate(params)
+            const members = await Member.paginate(params)
+
+            const pagination = {
+                total: Math.ceil(members[0].total / limit),
+                page
+            }
+
+            return res.render('members/index.njk', { members, pagination, filter })
+        } catch (error) {
+            console.error(error)
+        }
     },
     async create(req, res) {
-        const instructorsSelectOptions = await Member.instructorsSelectOptions()
+        try {
+            const instructorsSelectOptions = await Member.instructorsSelectOptions()
 
-        return res.render('members/create.njk', { instructorsSelectOptions })
+            return res.render('members/create.njk', { instructorsSelectOptions })
+        } catch (error) {
+            console.error(error)
+        }
     },
     async post(req, res) {
-        const memberId = await Member.create(req.body)
+        try {
+            const memberId = await Member.create(req.body)
 
-        return res.redirect(`/members/${memberId}`)
+            return res.redirect(`/members/${memberId}`)
+        } catch (error) {
+            console.error(error)
+        }
     },
     async show(req, res) {
-        let member = await Member.find(req.params.id)
+        try {
+            let member = await Member.find(req.params.id)
 
-        if (!member) return res.send('Membro não encontrado!')
+            if (!member) return res.send('Membro não encontrado!')
 
-        member.birth = date(member.birth).birthDay
+            member.birth = date(member.birth).birthDay
 
-        return res.render('members/show.njk', { member })
+            return res.render('members/show.njk', { member })
+        } catch (error) {
+            console.error(error)
+        }
     },
     async edit(req, res) {
-        let member = await Member.find(req.params.id)
+        try {
+            let member = await Member.find(req.params.id)
 
-        if (!member) return res.send('Membro não encontrado!')
+            if (!member) return res.send('Membro não encontrado!')
 
-        member.birth = date(member.birth).iso
+            member.birth = date(member.birth).iso
 
-        const instructorsSelectOptions = await Member.instructorsSelectOptions()
+            const instructorsSelectOptions = await Member.instructorsSelectOptions()
 
-        return res.render('members/edit.njk', { member, instructorsSelectOptions })
+            return res.render('members/edit.njk', { member, instructorsSelectOptions })
+        } catch (error) {
+            console.error(error)
+        }
     },
     async put(req, res) {
-        await Member.update(req.body)
+        try {
+            await Member.update(req.body)
 
-        return res.redirect(`/members/${req.body.id}`)
+            return res.redirect(`/members/${req.body.id}`)
+        } catch (error) {
+            console.error(error)
+        }
     },
     async delete(req, res) {
-        await Member.delete(req.body.id)
+        try {
+            await Member.delete(req.body.id)
 
-        return res.redirect(`/members`)
+            return res.redirect(`/members`)
+        } catch (error) {
+            console.error(error)
+        }
     }
 }

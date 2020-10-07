@@ -3,7 +3,7 @@ const routes = express.Router()
 
 const members = require('../app/controllers/MembersController')
 
-const { fillAllFields } = require('../validotors/fields')
+const { fillAllFields } = require('../validators/fields')
 
 routes.get('/', members.index)
 routes.get('/create', members.create)
