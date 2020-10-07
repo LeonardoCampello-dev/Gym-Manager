@@ -1,0 +1,125 @@
+.card.table-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-container {
+    display: grid;
+    grid-template: 64px 1fr 16px / 1fr;
+
+    padding: 40px;
+}
+
+.table-container table {
+    border-spacing: 0;
+    
+    margin-bottom: 24px;
+}
+
+.table-container thead tr th:last-child {
+    color: var(--action);
+}
+
+.header {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    
+    align-self: start;
+    margin-bottom: 24px;
+}
+
+.header a span {
+    width: 14px;
+    height: 14px;
+    
+    background-position: center;
+    background-size: cover;
+    
+    margin-right: 8px;
+}
+
+.header a {
+    width: 96px;
+    
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    align-items: center;
+    gap: 8px;
+}
+
+.header div {
+    display: grid;
+    grid-template-columns: 1fr 128px;
+    gap: 8px;
+}
+
+.header div input {
+    padding: 4px 8px;
+    border: 1px solid var(--action);
+    border-radius: 4px;
+}
+
+.header div button {
+    width: 128px;
+    margin: 0;
+}
+
+thead th {
+    color: var(--gray);
+    
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+th, td {
+    padding: 16px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+tbody tr td:first-child {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+}
+
+tbody tr td:first-child span {
+    width: 48px;
+    height: 48px;
+    
+    background-position: center;
+    background-size: cover;
+
+    border-radius: 40%;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 3px 1px 6px -4px #000;
+} 
+
+tbody tr td:nth-child(1) {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+tbody tr td:nth-child(2),
+tbody tr td:nth-child(3),
+tbody tr td:last-child {
+    text-align: center;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr td:last-child a,
+.header a {
+    background-color: var(--primary-color);
+    color: #fff;
+    
+    border-radius: 4px;
+    padding: 8px 16px;
+    
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+}

@@ -2,55 +2,68 @@
 
 {% block content %}
 
-    <div class="card table-container">
-        <table width="100%">
+<div class="card table-container">
+    
+    <table width="100%">
 
-            <form action="/members">
-                <div class="header">
-                    <a href="/members/create">
-                        <span style="background-image: url(/assets/add.svg)"></span>
-                        Novo 
-                    </a>
-                    <div>
-                        <input type="text" name="filter" placeholder="Nome ou Email" value="{{ filter }}">
-                        <button type="submit">Filtrar</button>
-                    </div>
-                </div>
-            </form>
-
-            <thead>
-                <tr>
-                    <th>Membro</th>
-                    <th>Email</th>
-                    <th>Peso</th>
-                    <th>Altura</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {% for member in members %}
-                    <tr>
-                        <td>
-                            <span style="background-image: url({{ member.avatar_url }})"></span>
-                            {{ member.name }}
-                        </td>
-                        <td>{{ member.email }}</td>
-                        <td>{{ member.weight }}kg</td>
-                        <td>{{ member.height }}cm</td>
-                        <td>
-                            <a href="/members/{{ member.id }}">Ver</a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-
-        </table>
+        <form action="/members">
         
-    <div class="pagination" data-page="{{ pagination.page}}" data-total="{{ pagination.total }}" data-filter="{{ filter }}"></div>
+            <div class="header">
 
-    </div>
+                <a href="/members/create">
+                    <span style="background-image: url(/assets/add.svg)"></span>
+                    Novo 
+                </a>
+                
+                <div>
+                    <input 
+                        type="text" 
+                        name="filter" 
+                        placeholder="Nome ou Email" 
+                        value="{{ filter }}"
+                    >
+                    <button type="submit">Filtrar</button>
+                </div>
+                
+            </div>
+            
+        </form>
 
+        <thead>
+            <tr>
+                <th>Membro</th>
+                <th>Email</th>
+                <th>Peso</th>
+                <th>Altura</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
 
+        <tbody>
+            {% for member in members %}
+                <tr>
+                    <td>
+                        <span style="background-image: url({{ member.avatar_url }})"></span>
+                        {{ member.name }}
+                    </td>
+                    
+                    <td>{{ member.email }}</td>
+                    
+                    <td>{{ member.weight }}kg</td>
+                    
+                    <td>{{ member.height }}cm</td>
+                    
+                    <td>
+                        <a href="/members/{{ member.id }}">Ver</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    
+    {% include "parts/pagination.njk" %}
+    
+</div>
 
 {% endblock content %}

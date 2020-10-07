@@ -2,14 +2,21 @@
 
 {% block content %}
 
-        <form class="card" method="POST" action="/instructors">
-            <section class="avatar" style="background: url(https://images.unsplash.com/photo-1584466977773-e625c37cdd50?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80) no-repeat center center / cover"></section>
+<form class="card" method="POST" action="/instructors">
 
-            <section class="details">
+    <section 
+        class="avatar" 
+        style="background: url(https://images.unsplash.com/photo-1584466977773-e625c37cdd50?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80) no-repeat center center / cover"
+    ></section>
 
-            <h3>Novo instrutor</h3>
-            
-            {% include "instructors/fields.njk" %}
-        </form>
+    <section class="details">
+
+        <h3>Novo instrutor</h3>
+        
+        {% include "instructors/fields.njk" %}
+
+    </section>
+    
+</form>
 
 {% endblock content %}
