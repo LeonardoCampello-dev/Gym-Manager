@@ -12,10 +12,10 @@ header {
 }
 
 header img {
-    width: 88px;
-    height: 88px;
+    width: 64px;
+    height: 64px;
 
-    left: 5%;
+    left: 15%;
     position: absolute;
 }
 

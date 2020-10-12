@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://i.pinimg.com/originals/58/b8/01/58b801823c2ee845a6fa3e749dbe3d83.png" width="300">
+    <img src="https://i.pinimg.com/originals/58/b8/01/58b801823c2ee845a6fa3e749dbe3d83.png" width="200">
 </h1>
 
 # <center> Gym Manager 🥇 </center> 
@@ -39,25 +39,25 @@ The following technologies were used
   
 ## 🎥 Statements
 
-**Trainers table**
+**Instructors table**
 
-![table](.github/table.png)
-
----
-
-**Creating instructor**
-
-![create-instructor](./.github/newTeacher.png)
+![instructors](.github/instructors.png)
 
 ---
 
-**Creating member**
+**Members table**
 
-![create-member](.github/newMember.png)
+![members](./.github/members.png)
 
-**Profile editing (instructor / member)**
+---
 
-![edit](.github/memberDetails.png)
+**Instructor card**
+
+![instructor](.github/instructor.png)
+
+**Member card**
+
+![member](.github/member.png)
 
 ---
 
