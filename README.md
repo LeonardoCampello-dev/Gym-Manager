@@ -13,9 +13,9 @@
     
 </h4>
 
-<h2> 📘 Index </h2>
+<h2>📘 Index</h2>
 
-- [�‍🏫 About](#-about)
+- [👨‍🏫 About](#-about)
   - [📌 Resources](#-resources)
 - [🚀 Technology](#-technology)
   - [📚 Libraries](#-libraries)
