@@ -1,114 +1,114 @@
 header {
-    background-color: #fff;
+  background-color: #fff;
 
-    width: 100%;
-    padding: 32px;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    position: relative;
+  width: 100%;
+  padding: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
 }
 
 header img {
-    width: 64px;
-    height: 64px;
+  width: 64px;
+  height: 64px;
 
-    left: 15%;
-    position: absolute;
+  left: 15%;
+  position: absolute;
 }
 
 .links {
-    font-size: 22px;
-    line-height: 32px;
+  font-size: 22px;
+  line-height: 32px;
 }
 
 .links a + a {
-    margin-left: 32px;
+  margin-left: 32px;
 }
 
 .links a {
-    color: var(--gray);
+  color: var(--gray);
 
-    text-decoration: none;
-    position: relative;
+  text-decoration: none;
+  position: relative;
 }
 
 .links a:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .links a.active {
-    font-weight: bold;
-    color: var(--primary-color);
+  font-weight: bold;
+  color: var(--primary-color);
 }
 
 .links a::after {
-    content: "";
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    position: absolute;
-    left: 0;
-    bottom: -3px;
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  bottom: -3px;
 }
 
 .links a:hover:after {
-    width: 100%;
-    transition: width 200ms ease-in-out;
+  width: 100%;
+  transition: width 200ms ease-in-out;
 }
 
 /* ================ FORM ================ */
 
 input,
 select {
-    color: #555;
-    width: 100%;
+  color: #555;
+  width: 100%;
 
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 input[type="radio"] {
-    width: initial;
-    margin-right: 4px;
+  width: initial;
+  margin-right: 4px;
 }
 
 input::placeholder {
-    font-size: 16px;
-    font-weight: normal;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 button[type="submit"],
 a.button {
-    color: #fff;
-    background-color: var(--primary-color);
-    
-    width: 100%;
-    padding: 8px 32px;
-    border-radius: 4px;
-    
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    
-    cursor: pointer;
-    
-    margin-top: 32px;
+  color: #fff;
+  background-color: var(--primary-color);
+
+  width: 100%;
+  padding: 8px 32px;
+  border-radius: 4px;
+
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  margin-top: 32px;
 }
 
 a.button {
-    display: block;
-    
-    text-align: center;
-    text-decoration: none;
+  display: block;
+
+  text-align: center;
+  text-decoration: none;
 }
 
 #form-delete button[type="submit"] {
-    background-color: var(--gray);
-    text-transform: uppercase;
+  background-color: var(--gray);
+  text-transform: uppercase;
 
-    margin-top: 8px;
+  margin-top: 8px;
 }

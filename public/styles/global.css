@@ -1,31 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,300;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,300;1,600&display=swap");
 
 :root {
-    --primary-color: #4169E1;
-    --secondary-color: #04D361;
-    --action: #142061;
-    --gray: #777777
+  --primary-color: #4169e1;
+  --secondary-color: #04d361;
+  --action: #142061;
+  --gray: #777777;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    border: none;
-    text-decoration: none;
-    outline: none;
-    list-style: none;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  list-style: none;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #1E90FF;
+  background-color: #1e90ff;
 }
 
 body,
 input,
 select,
 textarea {
-    font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
